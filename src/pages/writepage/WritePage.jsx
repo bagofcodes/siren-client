@@ -14,7 +14,7 @@ export default function WritePage() {
 
     useEffect(()=>{
         const getCats = async ()=>{
-            const res = await axios.get("http://localhost:5000/api/cat");
+            const res = await axios.get("https://sirenblog.herokuapp.com/api/cat");
             setCatList(res.data);
         }
         getCats();
@@ -31,7 +31,7 @@ export default function WritePage() {
             fd.append("photo",file);
             fd.append("category",cat);
 
-            var res = await axios.post("http://localhost:5000/api/posts", fd, {headers:{accessToken: localStorage.getItem("accessToken")}});
+            var res = await axios.post("https://sirenblog.herokuapp.com/api/posts", fd, {headers:{accessToken: localStorage.getItem("accessToken")}});
 
             alert(res.data.status);
             navigate("/")

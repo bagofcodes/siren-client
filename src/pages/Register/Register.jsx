@@ -29,7 +29,7 @@ export default function Register() {
             fd.append("youtubeid",youtubeid);
             fd.append("password",password);
             fd.append("profilepic",file);
-            const res = await axios.post("http://localhost:5000/api/auth/register",fd);
+            const res = await axios.post("https://sirenblog.herokuapp.com/api/auth/register",fd);
             alert(res.data.status + " Redirecting to Login Page");
             setTimeout(()=>{
                 navigate("/login");

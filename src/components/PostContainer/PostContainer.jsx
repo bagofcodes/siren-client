@@ -10,18 +10,18 @@ export default function PostContainer(props) {
     const [noOfElements,setElements] = useState(props.noOfEle);
     const [posts, setPosts] = useState([]);
     const [isFetched, setisFetched] = useState(true); 
-    const IURL= "http://localhost:5000/posts/";
+    const IURL= "https://sirenblog.herokuapp.com/posts/";
     var category = props.cat.catName;
     let slice=[];
     var loc=useLocation();
 
     const getPosts = async ()=>{
-        const res = await axios.get("http://localhost:5000/api/posts/latest", {headers:{accessToken: localStorage.getItem("accessToken")}});
+        const res = await axios.get("https://sirenblog.herokuapp.com/api/posts/latest", {headers:{accessToken: localStorage.getItem("accessToken")}});
         setPosts(res.data);
         setisFetched(false);
     }
     const getPostscat = async ()=>{
-        const res = await axios.get(`http://localhost:5000/api/posts/byCategory/${category}`, {headers:{accessToken: localStorage.getItem("accessToken")}});
+        const res = await axios.get(`https://sirenblog.herokuapp.com/api/posts/byCategory/${category}`, {headers:{accessToken: localStorage.getItem("accessToken")}});
         setPosts(res.data);
         setisFetched(false);
     }

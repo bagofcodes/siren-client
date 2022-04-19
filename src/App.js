@@ -20,7 +20,7 @@ function App() {
 
   useEffect(()=>{
     try{
-      const res =async ()=> await axios.get("http://localhost:5000/api/auth/verify", {
+      const res =async ()=> await axios.get("https://sirenblog.herokuapp.com/api/auth/verify", {
         headers: {
           accessToken: localStorage.getItem("accessToken")
         }

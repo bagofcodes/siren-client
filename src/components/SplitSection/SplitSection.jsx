@@ -9,13 +9,13 @@ import { useNavigate } from 'react-router-dom';
 export default function SplitSection() {
     const [posts, setPosts] = useState([]);
     const [isFetched, setisFetched] = useState(true); 
-    const IURL= "http://localhost:5000/posts/";
+    const IURL= "https://sirenblog.herokuapp.com/posts/";
     const navigate = useNavigate();
 
 
     useEffect(()=>{
         const getPosts = async ()=>{
-            const res = await axios.get("http://localhost:5000/api/posts/latest", {headers:{accessToken: localStorage.getItem("accessToken")}});
+            const res = await axios.get("https://sirenblog.herokuapp.com/api/posts/latest", {headers:{accessToken: localStorage.getItem("accessToken")}});
             await setPosts(res.data);
             setisFetched(false);
         }
